@@ -1,7 +1,13 @@
-#Contact class for personal information.
-
 class Contact
-	attr_accessor :first_name, :last_name, :email, :note
+	attr_accessor :last_name, :email, :note, :id
+
+	def first_name
+		@first_name
+	end
+
+	def first_name=(value)
+		@first_name = value
+	end
 
 	def initialize(first_name, last_name, email, note)
 		@first_name = first_name

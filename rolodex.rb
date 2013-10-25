@@ -1,16 +1,17 @@
-#This will be where the information is stored, and pulled from.
-
 class Rolodex
-	@contacts = []
-	@id = 1000
+	
+	def initialize
+	  @contacts = []
+	  @id = 0
+	end
 
-	def self.add_contact(contact)
+	def add_contact(contact)
 		contact.id = @id
 		@contacts << contact
 		@id += 1
 	end
 
-	def self.contacts
+	def contacts
 		@contacts
 	end
 end
