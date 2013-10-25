@@ -23,8 +23,9 @@ class CRM
 	#these are the different options that can be selected,
 	#matching up with the menu items.
 	def options(selection)
+	case
 		when 1 
-		  add_contact
+		  add_a_contact
 		when 2
 		  modify_contact
 		when 3
@@ -61,8 +62,24 @@ class Contact
 		contact = Contact.new(first_name, last_name, email, note)
 	end
 end
+#This will be where the information is stored, and pulled from.
+class Rolodex
+	@contacts = []
+	@id = 1000
+#Class method. For something widely used, in this case,
+#adding contact info. 
+	def self.add_contact(contact)
+		contact.id = @id
+		@contacts << contact
+		@id += 1
+	end
 
-#calling new instance of the class, and the method 
+	def self.contacts
+		@contacts
+	end
+end
+
+#Calling new instance of the class, and the method 
 #on the instance.
 crm = CRM.new(My crm)
 crm.print_menu
