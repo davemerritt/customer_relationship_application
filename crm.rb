@@ -2,7 +2,9 @@ class CRM
 	def initialize(name)
 		@name = name
 	end
+
 	#The main menu, where the user selects what they wish to do.
+
 	def print_menu
 		puts "[1] Add a contact"
 		puts "[2] Modify a contact"
@@ -15,13 +17,16 @@ class CRM
 
 	#this prings the menu, asks for a selection, and converts it
 	#to an integer for selection purposes.
+
 	def menu
 		print_menu
 		selection = gets.to_i
 		options(selection)
 	end
+
 	#these are the different options that can be selected,
 	#matching up with the menu items.
+
 	def options(selection)
 	case
 		when 1 
@@ -41,7 +46,9 @@ class CRM
 		end
 	end
 end
+
 #contact class for collecting and storing contact information.
+
 class Contact
 	def initialize(first_name, last_name, email, note)
 		@first_name = first_name
@@ -49,7 +56,9 @@ class Contact
 		@email = email
 		@note = note
 	end
+
 #Requests information. Still needs to store it somewhere.
+
 	def add_new
 		print "First Name?"
 		first_name = gets.chomp
@@ -62,12 +71,16 @@ class Contact
 		contact = Contact.new(first_name, last_name, email, note)
 	end
 end
+
 #This will be where the information is stored, and pulled from.
+
 class Rolodex
 	@contacts = []
 	@id = 1000
+
 #Class method. For something widely used, in this case,
 #adding contact info. 
+
 	def self.add_contact(contact)
 		contact.id = @id
 		@contacts << contact
@@ -81,6 +94,7 @@ end
 
 #Calling new instance of the class, and the method 
 #on the instance.
-crm = CRM.new(My crm)
+
+crm = CRM.new("My Crm")
 crm.print_menu
 
